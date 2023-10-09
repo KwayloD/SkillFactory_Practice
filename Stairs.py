@@ -1,5 +1,6 @@
-def print_ladder(n):
-    for i in range(1, n+1):
+def stairs(n):
+    for i in range(n, 0, -1):
         print("*" * i)
-print_ladder(3)
-print_ladder(4)
+    for u in range(1, n+1):
+        print("*" * u)
+stairs(6)
