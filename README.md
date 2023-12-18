@@ -82,3 +82,23 @@ print(check_palindrome("test"))  # False
 
 print(check_palindrome("Кит на море не романтик"))  # True
 ```
+*Напишите функцию, которая определяет, можно ли составить треугольник из трёх отрезков, длины которых передаются в функцию.
+Например, вызов функции is_triangle(3, 4, 5) возвращает True, а вызов is_triangle(1, -4, 5) возвращает False. Напишите параметризованный тест на эту функцию,
+используя фикстуру @pytest.mark.parametrize, который рассматривает все возможные варианты параметров:
+
+```python
+def is_triangle(a, b, c):
+    if a + b > c and b + c > a and a + c > b:
+        return True
+    else:
+        return False
+      
+@pytest.mark.parametrize("a, b, c, expected", [
+    (3, 4, 5, True),
+    (1, -4, 5, False),
+    (2, 2, 5, False),
+    (1, 0, 3, False)
+])
+def test_is_triangle(a, b, c, expected):
+    assert is_triangle(a, b, c) == expected
+```
